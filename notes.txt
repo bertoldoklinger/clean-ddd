@@ -1,0 +1,10 @@
+- nao levar o dry muito a risca
+- sempre separar casos de uso parecidos e entidades, pois quando precisarmos extender com regras de negocio especificas, será mais facil
+- design de software tem que traduzir a linguagem ubiqua(do mundo real) em código
+- repositorios cuidam das camadas de persistencia de dados
+- slug é uma representação de um texto, porem sem acento, sem caracteres especiais, bom para indexação das buscas, não utilizar id da do texto
+- value objects sao classes dentro de classes, atributos de uma classe que possuem comportamento , que são imutaveis
+- string.normalize('NFKD') => retira qualquer tipo de acentuação de uma string e devolve sem acentuacao nenhuma
+- protected pode ser acessado pela classe e por todas as classes filhas(extends)
+- criamos uma entity base para inicializar as props e id das entidades do projeto, assim deixando codigo mais limpo(limpando os construtores) e retirando a inicializacao de props na classe
+- criamos o value object do unique entity id para separarmos a geraçao de um uuid(node:crypto) da nossa entidade base e podemos assim trocar para outras como da lib uuid
