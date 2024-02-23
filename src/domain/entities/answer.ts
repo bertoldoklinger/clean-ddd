@@ -5,6 +5,8 @@ interface AnswerProps {
   questionId: string,
   content: string,
   authorId: string
+  createdAt: Date
+  updatedAt?: Date
 }
 
 
