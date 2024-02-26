@@ -8,3 +8,5 @@
 - protected pode ser acessado pela classe e por todas as classes filhas(extends)
 - criamos uma entity base para inicializar as props e id das entidades do projeto, assim deixando codigo mais limpo(limpando os construtores) e retirando a inicializacao de props na classe
 - criamos o value object do unique entity id para separarmos a geraçao de um uuid(node:crypto) da nossa entidade base e podemos assim trocar para outras como da lib uuid
+- getters e setters são porta de entrada e saida da nossa entidade, fazendo com que a gente proteja algumas entidades, não dando acesso a modificacao a alguns atributos, e forma de fazer validação ou manipulaçao desses atributos
+- so criar setter conforme precisar
