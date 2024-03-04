@@ -10,3 +10,7 @@
 - criamos o value object do unique entity id para separarmos a geraçao de um uuid(node:crypto) da nossa entidade base e podemos assim trocar para outras como da lib uuid
 - getters e setters são porta de entrada e saida da nossa entidade, fazendo com que a gente proteja algumas entidades, não dando acesso a modificacao a alguns atributos, e forma de fazer validação ou manipulaçao desses atributos
 - so criar setter conforme precisar
+- fetch para listar varias e get para listar apenas uma
+- quando trabalhamos com listagem, paginação é obrigatoria até nos use-cases
+- como ordenar os mais recentes(feito no repository) => const questions = this.items.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime(),)
+- para retornar entidades paginadas no repository, devemos pegar o parametro page(pode pegar page e perPage tbm) e passar para .slice((page - 1) * 20(ou perPage), page * 20(ou perPage))
