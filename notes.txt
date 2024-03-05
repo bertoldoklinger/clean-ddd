@@ -14,3 +14,5 @@
 - quando trabalhamos com listagem, paginação é obrigatoria até nos use-cases
 - como ordenar os mais recentes(feito no repository) => const questions = this.items.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime(),)
 - para retornar entidades paginadas no repository, devemos pegar o parametro page(pode pegar page e perPage tbm) e passar para .slice((page - 1) * 20(ou perPage), page * 20(ou perPage))
+- polimorfismo é uma entidade que pode se comportar como duas ou mais formas diferentes, pode ter mais formas dentro da mesma entidade => ex : um Comment pode ser um AnswerComment ou um QuestionComment(com herança) ou um Comment
+- classe abstrata é uma classe que não pode ser instanciada sozinha, ela sempre vai precisar ser extendida por outra classe(herança) para ela ser instanciada
