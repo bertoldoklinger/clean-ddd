@@ -9,4 +9,22 @@ export class InMemoryAnswerCommentsRepository
   async create(answerComment: AnswerComment) {
     this.items.push(answerComment)
   }
+
+  async findById(id: string): Promise<AnswerComment | null> {
+    const answerComment = this.items.find((item) => id === item.id.toString())
+
+    if (!answerComment) {
+      throw new Error('Answer not found')
+    }
+
+    return answerComment
+  }
+
+  async delete(answerComment: AnswerComment): Promise<void> {
+    const itemIndex = this.items.findIndex(
+      (item) => item.id === answerComment.id,
+    )
+
+    this.items.splice(itemIndex, 1)
+  }
 }
