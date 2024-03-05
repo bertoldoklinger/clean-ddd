@@ -16,3 +16,5 @@
 - para retornar entidades paginadas no repository, devemos pegar o parametro page(pode pegar page e perPage tbm) e passar para .slice((page - 1) * 20(ou perPage), page * 20(ou perPage))
 - polimorfismo é uma entidade que pode se comportar como duas ou mais formas diferentes, pode ter mais formas dentro da mesma entidade => ex : um Comment pode ser um AnswerComment ou um QuestionComment(com herança) ou um Comment
 - classe abstrata é uma classe que não pode ser instanciada sozinha, ela sempre vai precisar ser extendida por outra classe(herança) para ela ser instanciada
+- throw funciona diferente do return, throw dispara um erro e não termina o fluxo da funcao, já o return sim e se a função que estiver chamando nao tiver um try catch, vai bater no error handler global e retornando um internal server error 500, erro ruim
+- não é interessante usar throw para identificar nossos erros, usar throw impossibilita retornar respostas diferentes para erros diferentes
