@@ -18,3 +18,12 @@
 - classe abstrata é uma classe que não pode ser instanciada sozinha, ela sempre vai precisar ser extendida por outra classe(herança) para ela ser instanciada
 - throw funciona diferente do return, throw dispara um erro e não termina o fluxo da funcao, já o return sim e se a função que estiver chamando nao tiver um try catch, vai bater no error handler global e retornando um internal server error 500, erro ruim
 - não é interessante usar throw para identificar nossos erros, usar throw impossibilita retornar respostas diferentes para erros diferentes
+- O **Aggregate** é quando temos uma entidade que depende de outra entidade para ela existir
+  - Exemplo
+    - Order => OrderItem[]
+    - Order => Shipping
+- **Aggregate** é um conjunto de entidades que são manipuladas ao mesmo tempo, e elas, juntas, compõem algo maior, que é o Aggregate
+- No DDD, o aggregate pode fazer coisas que entidades simples não podem fazer
+- **WatchedLists** são listas observadas
+- O **AggregateRoot** sempre é a entidade principal dentro de um agregado de entidades
+- Toda AggregateRoot é uma entidade
