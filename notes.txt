@@ -24,6 +24,6 @@
     - Order => Shipping
 - **Aggregate** é um conjunto de entidades que são manipuladas ao mesmo tempo, e elas, juntas, compõem algo maior, que é o Aggregate
 - No DDD, o aggregate pode fazer coisas que entidades simples não podem fazer
-- **WatchedLists** são listas observadas
+- **WatchedLists** são listas observadas, que funcionam como um array, onde tu consegue fazer buscas nessa lista, ou adicionar, ou remover
 - O **AggregateRoot** sempre é a entidade principal dentro de um agregado de entidades
 - Toda AggregateRoot é uma entidade
