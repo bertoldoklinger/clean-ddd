@@ -1,12 +1,12 @@
 import { Either, left, right } from '@/core/either'
-import { Question } from '../../enterprise/entities/question'
+import { Question } from '@/domain/forum/enterprise/entities/question'
 import { QuestionsRepository } from '../repositories/questions-repository'
-import { NotAllowedError } from './errors/not-allowed-error'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
-import { QuestionAttachmentsRepository } from '../repositories/question-attachments-repository'
-import { QuestionAttachmentList } from '../../enterprise/entities/question-attachment-list'
-import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
+import { QuestionAttachmentsRepository } from '@/domain/forum/application/repositories/question-attachments-repository'
+import { QuestionAttachmentList } from '@/domain/forum/enterprise/entities/question-attachment-list'
+import { QuestionAttachment } from '@/domain/forum/enterprise/entities/question-attachment'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { NotAllowedError } from './errors/not-allowed-error'
 
 interface EditQuestionUseCaseRequest {
   authorId: string
@@ -55,19 +55,21 @@ export class EditQuestionUseCase {
 
     const questionAttachments = attachmentsIds.map((attachmentId) => {
       return QuestionAttachment.create({
-        questionId: question.id,
         attachmentId: new UniqueEntityId(attachmentId),
+        questionId: question.id,
       })
     })
 
     questionAttachmentList.update(questionAttachments)
 
+    question.attachments = questionAttachmentList
     question.title = title
     question.content = content
-    question.attachments = questionAttachmentList
 
     await this.questionsRepository.save(question)
 
-    return right({ question })
+    return right({
+      question,
+    })
   }
 }
