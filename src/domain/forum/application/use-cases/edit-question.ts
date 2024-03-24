@@ -59,7 +59,6 @@ export class EditQuestionUseCase {
         questionId: question.id,
       })
     })
-
     questionAttachmentList.update(questionAttachments)
 
     question.attachments = questionAttachmentList
